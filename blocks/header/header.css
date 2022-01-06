@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15.625%;
+}
+
+@media screen and (max-width: 544px) {
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
