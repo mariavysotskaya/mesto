@@ -12,8 +12,8 @@ const formElement = document.querySelector('.popup__form');
 const saveBtn = formElement.querySelector('.popup__save-btn');
 const closeBtn = document.querySelector('.popup__close-btn');
 
-let nameInput = formElement.querySelector('.popup__profile_type_name');
-let jobInput = formElement.querySelector('.popup__profile_type_job');
+let nameInput = formElement.querySelector('.popup__input-fld_type_name');
+let jobInput = formElement.querySelector('.popup__input-fld_type_job');
 
 function openPopup(){
     popup.classList.add('popup_open');
