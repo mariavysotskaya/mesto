@@ -15,6 +15,7 @@
   .popup__close-btn {
     width: 20px;
     height: 20px;
+    background: url("../../../images/popup/mobile-close-icon.svg");
     top: -28px;
     right: -1px;
   }
