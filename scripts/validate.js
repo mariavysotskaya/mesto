@@ -20,9 +20,9 @@ function hideError(form, input, config) {
 
 function handleFieldValidity(form, input, config) {
   if (input.validity.valid) {
-    hideError(form, input, config)
+    hideError(form, input, config);
   } else {
-      showError(form, input, config)
+      showError(form, input, config);
   };
 };
 
