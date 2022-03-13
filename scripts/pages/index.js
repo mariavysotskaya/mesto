@@ -42,12 +42,6 @@ function handleCardFormSubmit(evt) {
   }
   renderCard(card, cardsWrapper, false);
 };
-  
-editBtn.addEventListener('click', openEditProfilePopup);
-editProfilePopup.addEventListener('submit', handleProfileFormSubmit);
- 
-addBtn.addEventListener('click', openAddImagePopup);
-addCardPopup.addEventListener('submit', handleCardFormSubmit);
 
 function renderCard(item, wrap, isAppend) {
   const card = new Card(item, cardTemplateSelector);
@@ -57,6 +51,12 @@ function renderCard(item, wrap, isAppend) {
     wrap.prepend(card.getCardElement());
   }
 };
+  
+editBtn.addEventListener('click', openEditProfilePopup);
+editProfilePopup.addEventListener('submit', handleProfileFormSubmit);
+ 
+addBtn.addEventListener('click', openAddImagePopup);
+addCardPopup.addEventListener('submit', handleCardFormSubmit);
   
 initialCards.forEach(item => {
   renderCard(item, cardsWrapper, true);
