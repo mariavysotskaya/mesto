@@ -5,7 +5,7 @@ export function openPopup(popup) {
   document.addEventListener('keydown', closePopupByEsc);
 };
   
-function closePopup(popup) {
+export function closePopup(popup) {
   popup.classList.remove('popup_open');
   document.removeEventListener('keydown', closePopupByEsc);
 };
@@ -19,13 +19,7 @@ function closePopupByEsc(event) {
 
 popups.forEach(popup => {
   popup.addEventListener('click', (event) => {
-    if (event.target.classList.contains('popup__save-btn')) {
-      closePopup(popup);
-    };
-    if (event.target.classList.contains('popup__close-btn')) {
-      closePopup(popup);
-    };
-    if (event.target === popup) {
+    if (event.target.classList.contains('popup__close-btn') || event.target === popup) {
       closePopup(popup);
     };
   });
