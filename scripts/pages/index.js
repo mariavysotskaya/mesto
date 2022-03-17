@@ -1,21 +1,23 @@
 import {
   profileName, profileJob, editBtn, addBtn,
   cardsWrapper, cardTemplateSelector,
-  editProfilePopup, nameInput, jobInput,
-  addCardPopup, cardNameInput, cardLinkInput,
+  editProfilePopup, editProfileForm, nameInput, jobInput,
+  addCardPopup, addCardForm, cardNameInput, cardLinkInput,
   } from '../utils/constants.js';
 import { openPopup, closePopup } from '../utils/popup.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 
+const editProfileFormValidation = new FormValidator(formValidationConfig, editProfileForm);
+editProfileFormValidation.enableValidation();
+const addCardFormValidation = new FormValidator(formValidationConfig, addCardForm);
+addCardFormValidation.enableValidation();
+
 function openEditProfilePopup() {
   openPopup(editProfilePopup);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  const form = editProfilePopup.querySelector(formValidationConfig.formSelector);
-  const formElement = new FormValidator(formValidationConfig, form);
-  formElement.resetValidation();
-  formElement.enableValidation();
+  editProfileFormValidation.resetValidation();
 };
 
 function handleProfileFormSubmit(evt) {
@@ -29,10 +31,7 @@ function openAddImagePopup() {
   openPopup(addCardPopup);
   cardNameInput.value = '';
   cardLinkInput.value = '';
-  const form = addCardPopup.querySelector(formValidationConfig.formSelector);
-  const formElement = new FormValidator(formValidationConfig, form);
-  formElement.resetValidation();
-  formElement.enableValidation();
+  addCardFormValidation.resetValidation();
 };
 
 function handleCardFormSubmit(evt) {

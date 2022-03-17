@@ -9,10 +9,12 @@ const cardTemplateSelector = '#card-template';
 const popups = document.querySelectorAll('.popup');
 
 const editProfilePopup = document.querySelector('.popup_type_profile');
+const editProfileForm = editProfilePopup.querySelector('.popup__form');
 const nameInput = editProfilePopup.querySelector('.popup__input-fld_type_name');
 const jobInput = editProfilePopup.querySelector('.popup__input-fld_type_job');
 
 const addCardPopup = document.querySelector('.popup_type_card-adding');
+const addCardForm = addCardPopup.querySelector('.popup__form');
 const cardNameInput = addCardPopup.querySelector('[name="image-name"]');
 const cardLinkInput = addCardPopup.querySelector('[name="image-link"]');
 
@@ -24,7 +26,7 @@ export {
   profileName, profileJob, editBtn, addBtn,
   cardsWrapper, cardTemplateSelector,
   popups,
-  editProfilePopup, nameInput, jobInput,
-  addCardPopup, cardNameInput, cardLinkInput,
+  editProfilePopup, editProfileForm, nameInput, jobInput,
+  addCardPopup, addCardForm, cardNameInput, cardLinkInput,
   fullviewImagePopup, fullviewImage, fullviewImageName
 };
