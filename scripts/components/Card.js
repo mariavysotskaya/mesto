@@ -1,6 +1,3 @@
-import { fullviewImagePopup, fullviewImage, fullviewImageName } from '../utils/constants.js';
-import { openPopup } from '../utils/popup.js';
-
 export class Card {
   static selectors = {
     cardName: '.card__name',
@@ -9,10 +6,11 @@ export class Card {
     delBtn: '.card__delete-btn',
   };
   
-  constructor(item, templateSelector) {
+  constructor(item, templateSelector, { handleCardClick }) {
     this._name = item.name;
     this._link = item.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   };
 
   _getTemplate() {
@@ -20,12 +18,7 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector(Card.selectors.cardImage).addEventListener('click', () => {
-      fullviewImage.src = this._link; 
-      fullviewImage.alt = this._name;
-      fullviewImageName.textContent = this._name;
-      openPopup(fullviewImagePopup);
-    });
+    this._element.querySelector(Card.selectors.cardImage).addEventListener('click', () => this._handleCardClick(this));
     this._element.querySelector(Card.selectors.likeBtn).addEventListener('click', this._likeCard);
     this._element.querySelector(Card.selectors.delBtn).addEventListener('click', () => this._element.remove());
   }
