@@ -33,3 +33,5 @@ const formValidationConfig = {
   submitButtonSelector: '.popup__save-btn',
   inactiveButtonClass: 'popup__save-btn_disabled'
 };
+
+export {initialCards, formValidationConfig};
