@@ -35,7 +35,7 @@ const renderCard = (data, isAppend) => {
   cardsList.addItem(cardElement, isAppend);
 };
 
-const cardsList = new Section({ items: initialCards, renderer: renderCard}, cardsWrapperSelector);
+const cardsList = new Section({ items: initialCards, renderer: (initialCards) => renderCard(initialCards, true)}, cardsWrapperSelector);
 
 const addCardPopup = new PopupWithForm(addCardPopupSelector, {
   handleFormSubmit: (formData) => {
@@ -43,39 +43,35 @@ const addCardPopup = new PopupWithForm(addCardPopupSelector, {
       name: formData['image-name'],
       link: formData['image-link'],
     }
-    renderCard(data, true);
+    renderCard(data, false);
     addCardPopup.close();
   }
 });
 
 addCardPopup.setEventListeners();
 
+const fullviewImagePopup = new PopupWithImage(fullviewImagePopupSelector);
+fullviewImagePopup.setEventListeners();
+
 function createCardElement(data) {
-  const card = new Card(data, cardTemplateSelector,
-    {
-      handleCardClick: (cardData) => {
-        const fullViewPopup = new PopupWithImage(fullviewImagePopupSelector, cardData);
-        fullViewPopup.setEventListeners();
-        fullViewPopup.open();
-      }
-    });
+  const card = new Card(data, cardTemplateSelector, { handleCardClick: (cardData) => fullviewImagePopup.open(cardData) });
   const cardElement = card.getCardElement();
   return cardElement;
 };
 
 function openAddImagePopup() {
-  addCardPopup.open();
   cardNameInput.value = '';
   cardLinkInput.value = '';
   addCardFormValidation.resetValidation();
+  addCardPopup.open();
 };
 
 function openEditProfilePopup() {
-  editProfilePopup.open();
   const userData = user.getUserInfo();
   nameInput.value = userData.name;
   jobInput.value = userData.job;
   editProfileFormValidation.resetValidation();
+  editProfilePopup.open();
 };
 
 editBtn.addEventListener('click', openEditProfilePopup);

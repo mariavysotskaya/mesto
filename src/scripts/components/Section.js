@@ -7,9 +7,9 @@ export class Section {
 
   addItem(element, isAppend) {
     if (isAppend) {
-      this._container.prepend(element);
-    } else {
       this._container.append(element);
+    } else {
+      this._container.prepend(element);
     }
   }
 

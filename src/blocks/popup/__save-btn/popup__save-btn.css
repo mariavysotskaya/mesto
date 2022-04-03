@@ -9,13 +9,13 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  margin-top: 18px;
+  margin-top: 10px;
 }
   
 @media screen and (max-width: 544px) {
   .popup__save-btn {
     font-size: 14px;
     line-height: 17px;
-    margin-top: 15px;
+    margin-top: 12px;
   }
 }
