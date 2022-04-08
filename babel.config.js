@@ -11,4 +11,10 @@ const presets = [
     }]
 ];
 
+const plugins = [
+    ['transform-runtime', {
+        "regenerator": true
+    }]
+];
+
 module.exports = { presets };

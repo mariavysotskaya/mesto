@@ -13,11 +13,13 @@
         </header>
         <main class="content">
             <section class="profile content__section content__section_mobile">
-                <img class="profile__avatar" src="<%=require('./images/profile/avatar.jpg')%>" alt="Аватар">
+                <a class="profile__avatar-edit-btn">
+                    <img class="profile__avatar" alt="Аватар">
+                </a>
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <h1 class="profile__name"></h1>
                     <button type="button" class="profile__edit-btn button"></button>
-                    <p class="profile__job">Исследователь океана</p>
+                    <p class="profile__job"></p>
                 </div>
                 <button type="button" class="profile__add-btn button"></button>
             </section>
@@ -26,6 +28,23 @@
         <footer class="footer">
             <p class="footer__content">&copy; 2022 Mesto Russia</p>
         </footer>
+        <article class="popup popup_type_avatar">
+            <div class="popup__container">
+                <form class="popup__form" name="avatar-form" novalidate>
+                    <h2 class="popup__name">Обновить аватар</h2>
+                    <input
+                        required
+                        type="url"
+                        class="popup__input-fld"
+                        id="avatar-link"
+                        name="avatar"
+                        placeholder="Ссылка на картинку">
+                    <span id="avatar-link-error" class="popup__error"></span>
+                    <button type="submit" class="popup__save-btn button">Сохранить</button>
+                </form>
+                <button type="button" class="popup__close-btn button"></button>
+            </div>
+        </article>
         <article class="popup popup_type_profile">
             <div class="popup__container">
                 <form class="popup__form" name="form" novalidate>
@@ -47,7 +66,7 @@
                         maxlength="200"
                         class="popup__input-fld popup__input-fld_type_job"
                         id="job"
-                        name="job"
+                        name="about"
                         placeholder="Введите род занятий">
                     <span id="job-error" class="popup__error"></span>
                     <button type="submit" class="popup__save-btn button">Сохранить</button>
@@ -83,20 +102,42 @@
             </div>
         </article>
         <article class="popup popup_type_fullview-image">
-            <div class="popup__container">
+            <div class="popup__overlay">
                 <img class="popup__image" alt="Изображение">
                 <h2 class="popup__image-name"></h2>
                 <button type="button" class="popup__close-btn button"></button>
             </div>
         </article>
+        <article class="popup popup_type_confirm">
+            <div class="popup__container">
+                <h2 class="popup__name">Вы уверены?</h2>
+                <button type="button" class="popup__save-btn button">Да</button>
+                <button type="button" class="popup__close-btn button"></button>
+            </div>
+        </article>
     </div>
-    <template id="card-template">
+    <template class="card-template card-template_type_default">
+        <article class="card">
+            <img class="card__image" alt="Изображение">
+            <div class="card__container">
+                <h2 class="card__name"></h2>
+                <div class="card__like-container">
+                    <button type="button" class="card__like-btn button"></button>
+                    <span class="card__like-counter"></span>
+                </div>
+            </div>
+        </article>
+    </template>
+    <template class="card-template card-template_type_user">
         <article class="card">
             <img class="card__image" alt="Изображение">
             <button type="button" class="card__delete-btn button"></button>
             <div class="card__container">
                 <h2 class="card__name"></h2>
-                <button type="button" class="card__like-btn button"></button>
+                <div class="card__like-container">
+                    <button type="button" class="card__like-btn button"></button>
+                    <span class="card__like-counter"></span>
+                </div>
             </div>
         </article>
     </template>
