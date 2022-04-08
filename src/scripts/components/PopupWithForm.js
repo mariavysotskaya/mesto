@@ -20,9 +20,8 @@ export class PopupWithForm extends Popup {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._saveBtn.textContent += '...';
-      this._handleFormSubmit(this._getInputValues());
-      setTimeout(() => this._saveBtn.textContent = this._saveBtn.textContent.slice(0, -3), 1000);
+      this._saveBtn.textContent = 'Сохранение...';
+      this._handleFormSubmit(this._getInputValues(), this._saveBtn);
     });
   }
 

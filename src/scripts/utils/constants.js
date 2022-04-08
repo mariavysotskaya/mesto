@@ -6,8 +6,7 @@ const editBtn = document.querySelector('.profile__edit-btn');
 const addBtn = document.querySelector('.profile__add-btn');
 
 const cardsWrapperSelector = '.cards';
-const cardDefaultTemplateSelector = '.card-template_type_default';
-const cardUserTemplateSelector = '.card-template_type_user';
+const cardTemplateSelector = '.card-template';
 
 const editAvatarPopup = document.querySelector('.popup_type_avatar');
 const editAvatarPopupSelector = '.popup_type_avatar';
@@ -33,7 +32,7 @@ const confirmPopupSelector = '.popup_type_confirm';
 export {
   profileNameSelector, profileJobSelector, profileAvatar, editAvatarBtn, editBtn, addBtn,
   editAvatarPopupSelector, editAvatarForm, avatarLinkInput,
-  cardsWrapperSelector, cardDefaultTemplateSelector, cardUserTemplateSelector,
+  cardsWrapperSelector, cardTemplateSelector,
   editProfilePopupSelector, editProfileForm, nameInput, jobInput,
   addCardPopupSelector, addCardForm, cardNameInput, cardLinkInput,
   fullviewImagePopupSelector,

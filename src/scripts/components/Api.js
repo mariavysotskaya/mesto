@@ -9,12 +9,11 @@ export class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return Promise.reject(res.status);
     })
     .then((obj) => {
       return obj;
-    })
-    .catch(err => console.log(err));
+    });
   }
 
   getUser() {
